@@ -274,3 +274,5 @@
 @keyframes bvSoldEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:650px){.bvSoldMoment{flex-wrap:wrap;justify-content:flex-start}.bvSoldMoment>b{margin-left:49px}}
 @media(prefers-reduced-motion:reduce){.bvSoldMoment{animation:none}}
+
+.bvHealthMetric{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #e8eef7;font-size:12px}.bvHealthMetric span{color:#7486a0}.bvHealthMetric strong{color:#203b69}.bvAuditPanel{grid-column:1/-1;max-height:570px;overflow:auto}
