@@ -198,3 +198,23 @@
 .bvBrandTagline{font-size:8px;letter-spacing:.18em;font-weight:800;color:#6d83a5;white-space:nowrap}
 @media(max-width:760px){.bvBrandMarkPremium{width:51px;height:51px;flex-basis:51px;border-radius:14px}.bvBrandLockup .bvBrandText{font-size:21px}.bvBrandTagline{font-size:6px;letter-spacing:.13em}}
 @media(prefers-reduced-motion:reduce){.bvBrandMarkPremium{transition:none!important}}
+
+
+/* BIDVERSE signature kinetic monogram: compositor-friendly transforms and accessible motion */
+.bvLogoAnimated{position:relative;isolation:isolate;overflow:visible;animation:bvMonogramHover 6s ease-in-out infinite;will-change:transform}
+.bvLogoMonogram{position:relative;z-index:3;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 8px #e8bd7250)}
+.bvLogoHalo{position:absolute;inset:-8px;border-radius:50%;background:radial-gradient(circle,#f7d79a7d 0%,#f6d99f2c 39%,transparent 70%);filter:blur(9px);z-index:-1;animation:bvMonogramPulse 4.5s ease-in-out infinite}
+.bvLogoOrbit{position:absolute;inset:-8px;border:1px solid #d8ac64a6;border-radius:50%;pointer-events:none;z-index:1}
+.bvLogoOrbit:before{content:"";position:absolute;top:3px;left:11%;width:5px;height:5px;border-radius:50%;background:#f5dba4;box-shadow:0 0 11px #f8dca5}
+.bvLogoOrbitOne{transform:rotate(20deg) scaleX(1.09) scaleY(.62);animation:bvOrbitMonogram 13s linear infinite}
+.bvLogoOrbitTwo{inset:-13px;border-color:#ffffffbb;transform:rotate(-23deg) scaleX(.65) scaleY(1.1);animation:bvOrbitMonogramReverse 17s linear infinite}
+.bvLogoShine{position:absolute;z-index:4;inset:3px;border-radius:15px;overflow:hidden;pointer-events:none}
+.bvLogoShine:before{content:"";position:absolute;top:-40%;bottom:-40%;left:-65%;width:40%;background:linear-gradient(90deg,transparent,#fff2c27d,transparent);transform:skewX(-23deg);animation:bvMonogramShimmer 5.2s ease-in-out infinite}
+.bvLogoAnimated:hover{animation-play-state:paused;transform:translateY(-6px) scale(1.045)}
+.bvLogoAnimated:hover .bvLogoOrbit{animation-duration:7s}
+@keyframes bvMonogramHover{0%,100%{transform:translateY(-2px)}50%{transform:translateY(-6px)}}
+@keyframes bvMonogramPulse{0%,100%{opacity:.5;transform:scale(.94)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes bvOrbitMonogram{from{transform:rotate(20deg) scaleX(1.09) scaleY(.62)}to{transform:rotate(380deg) scaleX(1.09) scaleY(.62)}}
+@keyframes bvOrbitMonogramReverse{from{transform:rotate(-23deg) scaleX(.65) scaleY(1.1)}to{transform:rotate(-383deg) scaleX(.65) scaleY(1.1)}}
+@keyframes bvMonogramShimmer{0%,10%{left:-70%;opacity:0}16%{opacity:.8}40%{left:130%;opacity:.8}49%,100%{opacity:0;left:130%}}
+@media(prefers-reduced-motion:reduce){.bvLogoAnimated,.bvLogoHalo,.bvLogoOrbit,.bvLogoShine:before{animation:none!important}.bvLogoAnimated:hover{transform:none}}
