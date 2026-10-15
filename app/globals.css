@@ -70,3 +70,33 @@
 @media(max-width:760px){.bvAuthPage{padding:0}.bvAuthLayout{border:0;border-radius:0;display:flex;flex-direction:column;min-height:100svh}.bvStory{min-height:310px;padding:25px 22px 30px}.bvStoryCopy{margin-top:34px}.bvStoryCopy h1{font-size:46px;margin:17px 0 12px}.bvStoryCopy p{font-size:12px;line-height:1.6;max-width:330px}.bvStoryTop .bvBrandText{font-size:16px}.bvHighlights,.bvStoryBottom{display:none}.bvScene{position:absolute;right:-40px;bottom:-30px;width:52%;height:220px;opacity:.42}.bvFormPane{padding:20px 17px 25px;flex:1}.bvFormCenter{padding:24px 0}.bvAuthCard{width:min(100%,480px);padding:27px}.bvPaneTop,.bvPaneBottom{font-size:9px}.bvAuthCard h2{font-size:34px}.bvFormCenter{align-items:start}}
 @media(max-width:420px){.bvStoryCopy h1{font-size:37px}.bvStoryCopy p{max-width:250px}.bvStory{min-height:285px}.bvOverline{font-size:9px}.bvAuthCard{padding:22px}.bvEdition{display:none}}
 @media(prefers-reduced-motion:reduce){.bvAuthPage *, .bvAuthPage *:before,.bvAuthPage *:after{animation:none!important;transition:none!important}}
+
+
+/* Signature cinematic upgrade: illustration is a native scalable SVG, not a screenshot. */
+.bvAuthPage{padding:12px;background:linear-gradient(128deg,#edf4ff,#cbd9f1 85%)}
+.bvAuthLayout{grid-template-columns:minmax(0,1.17fr) minmax(390px,.83fr);border-radius:22px}
+.bvStory{min-height:875px;padding:39px clamp(32px,4vw,66px) 28px;background:radial-gradient(ellipse at 62% 48%,#ffffff9c,transparent 57%),linear-gradient(150deg,#fff 2%,#e8f1ff 43%,#bfd2f1 100%)}
+.bvStoryCopy{margin-top:56px;align-self:stretch}
+.bvStoryCopy h1{font-size:clamp(54px,5.4vw,91px);line-height:1.03;white-space:nowrap;margin:19px 0 18px;letter-spacing:-.057em}
+.bvStoryCopy h1 em{background:linear-gradient(105deg,#af7d39,#c49550 58%,#976d34);background-clip:text;-webkit-background-clip:text;color:transparent}
+.bvStoryCopy p{max-width:570px;font-size:16px;line-height:1.7}
+.bvScene{position:absolute;left:0;right:0;bottom:44px;width:100%;height:55%;background:url('/auction-hero.svg') center bottom / cover no-repeat;filter:drop-shadow(0 16px 17px #1c427a1a)}
+.bvScene>.bvMeshSphere,.bvScene>.bvOrbit,.bvScene>.bvOrb,.bvScene>.bvAuctionDisc,.bvScene>.bvGavelHead,.bvScene>.bvGavelHandle,.bvScene>.bvSceneGlow{display:none}
+.bvStoryCopy{margin-bottom:auto}
+.bvHighlights{margin-top:27px;position:relative;z-index:5}
+.bvHighlights span{box-shadow:0 9px 25px #436ba81a;background:#ffffffcb;border:1px solid #fff}
+.bvFloatingBadge{box-shadow:0 12px 24px #133c7455;background:#f9fcffee}
+.bvBadgeTop{top:29%;right:5%}.bvBadgeBottom{bottom:26%;left:6%}
+.bvStoryBottom{position:relative;margin-top:auto;border-color:#ffffff4d;justify-content:space-between;padding-top:16px;min-height:72px}
+.bvStoryBottom strong{color:#fff3d6;text-shadow:0 1px 6px #081d41;font-size:18px;font-weight:600}
+.bvStoryBottom span{color:#f2f6ff;text-shadow:0 1px 8px #0d2550}
+.bvBottomCaption{font-size:9px}
+.bvFormPane{background:radial-gradient(ellipse at 17% 3%,#ffffffb8 0%,transparent 50%),linear-gradient(145deg,#e4ecfc,#f9fbff 54%,#dbe6f8);padding:37px clamp(24px,3vw,55px)}
+.bvAuthCard{max-width:500px;min-height:570px;padding:clamp(30px,3.1vw,48px);border:1.5px solid #fff;box-shadow:0 32px 80px #11305b22,0 3px 12px #204a7a0e;background:linear-gradient(130deg,#ffffffdf,#f6f9ffcf)}
+.bvAuthCard h2{font-size:clamp(32px,2.75vw,43px)}
+.bvSubmit{background:linear-gradient(112deg,#0c2a63,#2051a8 68%,#317bec);box-shadow:0 15px 32px #1b4eab4d}
+.bvScene{animation:bvReveal 1.1s cubic-bezier(.2,.75,.2,1) both}
+@keyframes bvReveal{from{opacity:0;transform:translateY(32px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1250px){.bvStoryCopy h1{white-space:normal}.bvStory{min-height:790px}.bvScene{height:50%}}
+@media(max-width:760px){.bvAuthLayout{display:flex}.bvStory{min-height:410px;padding:26px 20px 18px}.bvStoryCopy{margin-top:30px}.bvStoryCopy h1{font-size:clamp(38px,8vw,58px);max-width:100%;white-space:normal}.bvStoryCopy p{max-width:340px;font-size:12px}.bvScene{height:245px;left:30%;width:80%;bottom:0;opacity:.58;background-size:cover}.bvStoryBottom{display:none}.bvHighlights{display:none}.bvBadgeTop,.bvBadgeBottom{display:none}.bvFormPane{padding:25px 17px}.bvFormCenter{padding:20px 0}.bvAuthCard{min-height:unset}}
+@media(prefers-reduced-motion:reduce){.bvScene{animation:none}}
