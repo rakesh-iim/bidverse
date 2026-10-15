@@ -276,3 +276,5 @@
 @media(prefers-reduced-motion:reduce){.bvSoldMoment{animation:none}}
 
 .bvHealthMetric{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #e8eef7;font-size:12px}.bvHealthMetric span{color:#7486a0}.bvHealthMetric strong{color:#203b69}.bvAuditPanel{grid-column:1/-1;max-height:570px;overflow:auto}
+
+.bvDemoButton{border:1px solid #c6a368;background:linear-gradient(120deg,#fff6e7,#f2e1bf);color:#6b4d22;padding:12px 16px;border-radius:11px;font-size:12px;font-weight:800;cursor:pointer}.bvDemoButton:hover{filter:brightness(.97)}.bvDemoHint{font-size:13px;color:#6a7891;margin:12px 0}.bvDemoSetup{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px;margin-bottom:16px;background:#f7f1e8;border-radius:12px;font-size:12px;color:#785d37}
