@@ -1,0 +1,37 @@
+name: BIDVERSE Quality Gate
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Regression suite
+        run: npm test
+      - name: TypeScript check
+        run: npx tsc --noEmit
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
+      - name: Summarize
+        if: always()
+        run: |
+          echo '## BIDVERSE Quality Gate' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Regression, type check and production build are required to pass.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Authenticated concurrency, cross-device recovery and backup rehearsals are NOT tested by this job.' >> "$GITHUB_STEP_SUMMARY"
