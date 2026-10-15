@@ -100,3 +100,44 @@
 @media(max-width:1250px){.bvStoryCopy h1{white-space:normal}.bvStory{min-height:790px}.bvScene{height:50%}}
 @media(max-width:760px){.bvAuthLayout{display:flex}.bvStory{min-height:410px;padding:26px 20px 18px}.bvStoryCopy{margin-top:30px}.bvStoryCopy h1{font-size:clamp(38px,8vw,58px);max-width:100%;white-space:normal}.bvStoryCopy p{max-width:340px;font-size:12px}.bvScene{height:245px;left:30%;width:80%;bottom:0;opacity:.58;background-size:cover}.bvStoryBottom{display:none}.bvHighlights{display:none}.bvBadgeTop,.bvBadgeBottom{display:none}.bvFormPane{padding:25px 17px}.bvFormCenter{padding:20px 0}.bvAuthCard{min-height:unset}}
 @media(prefers-reduced-motion:reduce){.bvScene{animation:none}}
+
+
+/* Premium finishing pass: elevated surfaces, custom icon system, restrained kinetic depth */
+.bvAuthPage{background:radial-gradient(ellipse at 14% 1%,#f9fbff,#e9effb 55%,#cbd9f3);padding:13px}
+.bvAuthLayout{box-shadow:0 36px 110px #112b5730;border:1px solid #fffc;min-height:calc(100svh - 26px)}
+.bvStory{background:radial-gradient(ellipse at 18% 12%,#fff 3%,transparent 55%),linear-gradient(147deg,#fdfefe,#e9f1ff 43%,#9dbce5 100%)}
+.bvStory:before{opacity:.55}
+.bvStoryCopy h1{font-weight:400;text-shadow:0 2px 15px #ffffff91}
+.bvStoryCopy h1 em{filter:drop-shadow(0 7px 13px #96714424)}
+.bvStoryCopy p{max-width:495px;color:#4f6990;letter-spacing:.005em}
+.bvOverline{color:#44648a;letter-spacing:.26em}
+.bvHighlights span{color:#213d68;border:1px solid #fffe;box-shadow:inset 0 1px 0 #fff,0 11px 26px #18416a1c;backdrop-filter:blur(18px);transition:transform .28s ease,box-shadow .28s ease}
+.bvHighlights span:hover{transform:translateY(-5px);box-shadow:0 17px 35px #18416a2c}
+.bvHighlights span svg{color:#b7853b;filter:drop-shadow(0 3px 4px #bc8c392c)}
+.bvBrandMark{background:linear-gradient(155deg,#102f63,#071c43);border:1px solid #d4a45166;box-shadow:0 4px 0 #dfb36e,0 14px 29px #10295242}
+.bvBrandText{letter-spacing:.28em}
+.bvStoryTop,.bvStoryCopy,.bvStoryBottom{animation:bvContentEnter .85s cubic-bezier(.2,.75,.22,1) both}
+.bvStoryCopy{animation-delay:.12s}.bvStoryBottom{animation-delay:.3s}
+.bvScene{background-size:100% 100%;background-position:center bottom;animation:bvReveal 1.3s cubic-bezier(.2,.75,.2,1) both;will-change:transform,opacity}
+.bvFloatingBadge{border:1px solid #fff;letter-spacing:.17em}
+.bvFormPane{background:radial-gradient(circle at 50% 28%,#fff 0%,transparent 55%),linear-gradient(150deg,#dfeafb 0%,#f9fbff 47%,#e3ebf9 100%)}
+.bvAuthCard{border:1px solid #fff;box-shadow:0 29px 80px #17335b22,0 3px 8px #162c510f,inset 0 1px 0 #fff;background:linear-gradient(143deg,#fffffff2,#f6f9ffe9);animation:bvCardEnter 1s cubic-bezier(.2,.75,.22,1) both}
+.bvCardEyebrow{color:#b18850}
+.bvAuthCard h2{font-weight:500;letter-spacing:-.05em}
+.bvMode{background:#e8eff9;border:1px solid #dfe9f7;box-shadow:inset 0 2px 6px #162e5312}
+.bvMode button.selected{background:linear-gradient(110deg,#0d2852,#214985);border:1px solid #6889be6b;box-shadow:0 7px 21px #17396036}
+.bvInputWrap{box-shadow:0 5px 16px #1e4b8108;border:1px solid #dce6f3;transition:transform .2s ease,box-shadow .22s,border-color .22s}
+.bvInputWrap:hover{border-color:#a7bce0}
+.bvInputWrap:focus-within{transform:translateY(-1px);box-shadow:0 0 0 4px #527ecd18,0 12px 25px #143f8117}
+.bvInputWrap>svg{color:#335c94;flex-shrink:0}
+.bvSubmit{letter-spacing:.035em;border:1px solid #7799d0;box-shadow:0 12px 25px #2051a64d,inset 0 1px 1px #ffffff70;position:relative;overflow:hidden}
+.bvSubmit:after{content:"";position:absolute;width:42%;inset:-80% auto -80% -55%;background:linear-gradient(90deg,transparent,#fff5,transparent);transform:skewX(-25deg);transition:left .65s ease;pointer-events:none}
+.bvSubmit:hover:not(:disabled):after{left:125%}
+.bvSubmit svg{transition:transform .25s}.bvSubmit:hover:not(:disabled) svg{transform:translateX(4px)}
+.bvCardFooter{font-size:11px;line-height:1.5}.bvCardFooter svg{flex-shrink:0;color:#2b5b99}
+.bvPaneTop{font-size:10px}
+@keyframes bvContentEnter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bvCardEnter{from{opacity:0;transform:translateY(20px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1250px){.bvScene{background-size:cover}.bvStoryCopy h1{font-size:clamp(52px,5.2vw,75px)}}
+@media(max-width:760px){.bvAuthPage{padding:0}.bvStory{min-height:360px}.bvStoryCopy h1{font-size:clamp(37px,8vw,53px)}.bvStoryCopy p{max-width:300px}.bvScene{height:230px;left:26%;width:85%;bottom:-2px;background-size:cover;opacity:.56}.bvFormPane{padding:20px 15px}.bvAuthCard{padding:24px;box-shadow:0 19px 45px #17335b16}}
+@media(prefers-reduced-motion:reduce){.bvStoryTop,.bvStoryCopy,.bvStoryBottom,.bvAuthCard,.bvScene{animation:none!important}.bvSubmit:after{display:none}}
