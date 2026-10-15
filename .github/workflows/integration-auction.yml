@@ -1,0 +1,33 @@
+name: BIDVERSE Authenticated Auction Check
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  concurrent-bids:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BIDVERSE_SUPABASE_URL: ${{ secrets.BIDVERSE_TEST_SUPABASE_URL }}
+      BIDVERSE_ANON_KEY: ${{ secrets.BIDVERSE_TEST_ANON_KEY }}
+      BIDVERSE_TEST_LOT_ID: ${{ secrets.BIDVERSE_TEST_LOT_ID }}
+      BIDVERSE_TEST_TEAM_A: ${{ secrets.BIDVERSE_TEST_TEAM_A }}
+      BIDVERSE_TEST_TEAM_B: ${{ secrets.BIDVERSE_TEST_TEAM_B }}
+      BIDVERSE_CAPTAIN_A_JWT: ${{ secrets.BIDVERSE_CAPTAIN_A_JWT }}
+      BIDVERSE_CAPTAIN_B_JWT: ${{ secrets.BIDVERSE_CAPTAIN_B_JWT }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check isolated credentials
+        run: |
+          for name in BIDVERSE_SUPABASE_URL BIDVERSE_ANON_KEY BIDVERSE_TEST_LOT_ID BIDVERSE_TEST_TEAM_A BIDVERSE_TEST_TEAM_B BIDVERSE_CAPTAIN_A_JWT BIDVERSE_CAPTAIN_B_JWT; do
+            if [ -z "${!name}" ]; then echo "::error::Missing required repository secret $name"; exit 1; fi
+          done
+          echo "Authenticated test configuration present."
+      - name: Run live isolated bid test
+        run: node tests/concurrent-auction.mjs
+      - name: Report test scope
+        if: always()
+        run: |
+          echo '## Authenticated bid test' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This test submits real bids in the isolated test event; do not point it at production auctions.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Cross-device recovery, finalization, permission matrix and backup rehearsal are separate release gates.' >> "$GITHUB_STEP_SUMMARY"
