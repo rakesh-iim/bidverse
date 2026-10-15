@@ -264,3 +264,13 @@
 .arena:fullscreen .stagePlayer h2{font-size:clamp(54px,5vw,110px)}
 .arena:fullscreen .stageBid strong{font-size:clamp(70px,7vw,155px)}
 @media(prefers-reduced-motion:reduce){.bvArenaTicker{scroll-behavior:auto}}
+
+
+/* Phase 7: official signing reveal */
+.bvSoldMoment{display:flex;gap:17px;align-items:center;justify-content:center;background:linear-gradient(115deg,#101e40,#24467c 60%,#11254e);color:#f7dba7;padding:21px;border-block:1px solid #cba05d;animation:bvSoldEnter .6s cubic-bezier(.2,.7,.2,1) both}
+.bvSoldMoment>svg{filter:drop-shadow(0 0 11px #eabf71a0);flex-shrink:0}
+.bvSoldMoment>div{display:grid;gap:5px}.bvSoldMoment span{font-size:10px;font-weight:800;letter-spacing:.22em;color:#d4b17a}
+.bvSoldMoment strong{font-size:clamp(16px,2vw,28px);color:#fff;font-weight:800}.bvSoldMoment>b{padding:9px 12px;border:1px solid #eac88b83;border-radius:10px;white-space:nowrap;font-size:14px}
+@keyframes bvSoldEnter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.bvSoldMoment{flex-wrap:wrap;justify-content:flex-start}.bvSoldMoment>b{margin-left:49px}}
+@media(prefers-reduced-motion:reduce){.bvSoldMoment{animation:none}}
