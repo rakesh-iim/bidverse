@@ -186,3 +186,15 @@
 @media(max-width:1250px){.bvStoryCopy h1{font-size:clamp(48px,5.3vw,75px)}.bvStageLabel{display:none}.bvStory{min-height:820px}}
 @media(max-width:760px){.bvStory{min-height:360px}.bvStoryCopy{margin-top:28px}.bvStoryCopy h1{font-size:clamp(37px,8vw,53px)}.bvStoryCopy p{font-size:12px}.bvScene{bottom:0;height:220px;opacity:.52}.bvStoryBottom{display:none}.bvBrandPill{display:none}.bvAuthCard{padding:25px;box-shadow:0 25px 55px #12356018}.bvAuthCard h2{font-size:35px}.bvFormPane:before,.bvFormPane:after{display:none}.bvSceneGrain{opacity:.1}}
 @media(prefers-reduced-motion:reduce){.bvPillStar,.bvAmbientRay,.bvOrbitSpark{animation:none!important}}
+
+
+/* BIDVERSE luxury logo system */
+.bvBrandMarkPremium{width:64px;height:64px;flex:0 0 64px;padding:3px;display:grid;place-items:center;background:radial-gradient(circle at 28% 18%,#294c83,#07172f 72%);border:1px solid #ca9852;border-radius:18px;box-shadow:inset 0 1px 0 #ffe8b179,0 5px 0 #bb8a46,0 13px 30px #10294d40;transform:translateY(-2px);transition:transform .35s,box-shadow .35s}
+.bvBrandMarkPremium img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 6px #f0c98048)}
+.bvBrandMarkPremium:hover{transform:translateY(-5px) rotate(-2deg);box-shadow:inset 0 1px 0 #ffe8b1a0,0 7px 0 #bb8a46,0 20px 30px #10294d50}
+.bvBrandLockup{display:flex;flex-direction:column;gap:5px}
+.bvBrandLockup .bvBrandText{font-family:Georgia,"Times New Roman",serif;letter-spacing:.16em;font-size:clamp(21px,2vw,28px);font-weight:700;color:#102a57;white-space:nowrap;line-height:1}
+.bvBrandLockup .bvBrandText span{color:#ae7d35}
+.bvBrandTagline{font-size:8px;letter-spacing:.18em;font-weight:800;color:#6d83a5;white-space:nowrap}
+@media(max-width:760px){.bvBrandMarkPremium{width:51px;height:51px;flex-basis:51px;border-radius:14px}.bvBrandLockup .bvBrandText{font-size:21px}.bvBrandTagline{font-size:6px;letter-spacing:.13em}}
+@media(prefers-reduced-motion:reduce){.bvBrandMarkPremium{transition:none!important}}
