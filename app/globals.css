@@ -250,3 +250,17 @@
 .bvReauctionList{display:grid;gap:4px}
 @media(max-width:760px){.bvLiveRibbon{align-items:flex-start;flex-direction:column}.bvClockValue{font-size:40px}}
 @media(prefers-reduced-motion:reduce){.bvSignalDot{animation:none}}
+
+
+/* Phase 6 projector presentation */
+.bvFullscreenButton{border:1px solid #b78d50;color:#f3d59d;background:#132d57;border-radius:10px;padding:10px 17px;font-weight:700;cursor:pointer;letter-spacing:.06em}
+.bvFullscreenButton:hover{background:#204477}
+.bvArenaTicker{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:14px 21px;border-top:1px solid #c9995940;border-bottom:1px solid #c9995940;background:#091d41;color:#e2c18f}
+.bvArenaTicker>span{font-size:10px;letter-spacing:.16em;font-weight:800;opacity:.67}
+.bvArenaTicker strong{color:#fff;font-size:12px;padding:7px 11px;border:1px solid #ffffff26;border-radius:20px;background:#ffffff0b}
+.bvArenaTicker em{color:#d4c7ae;font-size:12px}
+.arena:fullscreen{width:100vw;height:100vh;border-radius:0;display:flex;flex-direction:column;overflow:auto;background:radial-gradient(ellipse at center,#1f417d,#061329)}
+.arena:fullscreen .arenaBody{flex:1;align-items:center;justify-content:center}
+.arena:fullscreen .stagePlayer h2{font-size:clamp(54px,5vw,110px)}
+.arena:fullscreen .stageBid strong{font-size:clamp(70px,7vw,155px)}
+@media(prefers-reduced-motion:reduce){.bvArenaTicker{scroll-behavior:auto}}
