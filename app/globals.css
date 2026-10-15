@@ -238,3 +238,15 @@
 .bvSetupPanel .inlineForm button{min-height:43px}
 @media(max-width:940px){.bvSetupGrid{grid-template-columns:1fr}}
 @media(max-width:560px){.bvSetupPanel .inlineForm{display:grid;grid-template-columns:1fr 1fr}.bvSetupPanel .inlineForm button{grid-column:1/-1}.bvRosterLine{align-items:start}}
+
+
+/* Phase 4 live operations */
+.bvLiveRibbon{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 19px;margin:0 0 17px;background:linear-gradient(100deg,#e7f7f3,#edf5ff);border:1px solid #c8e6dc;border-radius:13px;color:#2a6180;font-size:12px}
+.bvLiveRibbon>div{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.bvLiveRibbon strong{font-size:10px;letter-spacing:.09em}.bvLiveRibbonRight{font-size:11px;color:#66819f}
+.bvSignalDot{height:9px;width:9px;background:#2cb58e;border-radius:50%;box-shadow:0 0 0 4px #2cb58e20;animation:bvPulse 2s ease-in-out infinite}
+.bvSignalOffline{background:#d69643;box-shadow:0 0 0 4px #d6964320}
+.bvClockValue{font-size:48px;font-weight:850;letter-spacing:.04em;color:#1c477f;font-variant-numeric:tabular-nums;padding:14px 0}
+.bvReauctionPanel{margin-top:18px}
+.bvReauctionList{display:grid;gap:4px}
+@media(max-width:760px){.bvLiveRibbon{align-items:flex-start;flex-direction:column}.bvClockValue{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.bvSignalDot{animation:none}}
