@@ -335,3 +335,23 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#6e91d7;box-sh
 .arena:fullscreen{border-radius:0}
 @media(max-width:760px){.main{padding:23px 16px 44px}.hero{border-radius:23px;padding:24px}.panel{padding:20px;border-radius:20px}.metric{padding:19px;border-radius:19px}.bvTestCase{padding:17px;border-radius:17px}.bvInviteBox{padding:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.metric,input,select,textarea{transition:none}.metric:hover,button:hover:not(:disabled){transform:none}}
+
+/* Login / signup / recovery — soft luxury surfaces */
+.bvAuthPage{padding:clamp(12px,1.7vw,26px);background:radial-gradient(ellipse 65% 75% at 2% 95%,#e3ebfa 0%,transparent 75%),radial-gradient(ellipse 55% 65% at 98% 4%,#dce8fb 0%,transparent 75%),#f1f5fb}
+.bvAuthLayout{min-height:calc(100svh - 52px);border-radius:34px;border:1px solid rgba(255,255,255,.95);box-shadow:0 30px 90px rgba(23,48,87,.12),0 6px 20px rgba(23,48,87,.04)}
+.bvStory{border-radius:32px 0 0 32px}
+.bvFormPane{background:radial-gradient(circle at 80% 15%,#e9f0fc 0%,transparent 47%),linear-gradient(145deg,#fff,#f7faff);padding-inline:clamp(22px,4vw,74px)}
+.bvAuthCard{width:min(100%,490px);padding:clamp(25px,3.6vw,48px);border-radius:32px;border:1px solid #fff;background:linear-gradient(150deg,rgba(255,255,255,.98),rgba(249,251,255,.91));box-shadow:0 25px 70px rgba(33,65,109,.09),0 3px 16px rgba(33,65,109,.035)}
+.bvMode{border-radius:20px;background:#eff3fa;padding:6px;gap:7px;margin-bottom:34px}
+.bvMode button{border-radius:15px;min-height:45px;transition:background .2s ease,color .2s ease,box-shadow .2s ease}
+.bvMode button.selected{border-radius:15px;background:linear-gradient(135deg,#173c74,#285aa6);box-shadow:0 7px 17px rgba(25,66,132,.2)}
+.bvAuthCard h2{letter-spacing:-.05em}
+.bvField{gap:9px}
+.bvInputWrap{border-radius:17px;border-color:#dfe8f4;background:#fff;box-shadow:0 3px 9px rgba(23,53,99,.025)}
+.bvInputWrap:focus-within{border-color:#7398d5;box-shadow:0 0 0 4px rgba(67,117,200,.1),0 8px 22px rgba(24,57,101,.04)}
+.bvInputWrap input{min-height:51px}
+.bvSubmit{min-height:55px;border-radius:17px;padding:17px 21px;background:linear-gradient(115deg,#153a74,#285cb3 68%,#3674ce);box-shadow:0 13px 29px rgba(22,69,144,.2)}
+.bvNotice{border-radius:16px}
+.bvBrandPill,.bvFloatingBadge,.bvStageLabel{border-radius:999px}
+@media(max-width:850px){.bvAuthLayout{border-radius:25px}.bvStory{border-radius:24px 24px 0 0}.bvAuthCard{border-radius:26px}.bvFormPane{padding-inline:22px}}
+@media(max-width:480px){.bvAuthPage{padding:9px}.bvAuthLayout{border-radius:21px;min-height:calc(100svh - 18px)}.bvAuthCard{border-radius:22px;padding:24px 20px}.bvMode{border-radius:16px}.bvMode button,.bvMode button.selected{border-radius:12px}}
