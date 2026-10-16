@@ -13,13 +13,15 @@ jobs:
       BIDVERSE_TEST_LOT_ID: ${{ secrets.BIDVERSE_TEST_LOT_ID }}
       BIDVERSE_TEST_TEAM_A: ${{ secrets.BIDVERSE_TEST_TEAM_A }}
       BIDVERSE_TEST_TEAM_B: ${{ secrets.BIDVERSE_TEST_TEAM_B }}
-      BIDVERSE_CAPTAIN_A_JWT: ${{ secrets.BIDVERSE_CAPTAIN_A_JWT }}
-      BIDVERSE_CAPTAIN_B_JWT: ${{ secrets.BIDVERSE_CAPTAIN_B_JWT }}
+      BIDVERSE_CAPTAIN_A_EMAIL: ${{ secrets.BIDVERSE_CAPTAIN_A_EMAIL }}
+      BIDVERSE_CAPTAIN_B_EMAIL: ${{ secrets.BIDVERSE_CAPTAIN_B_EMAIL }}
+      BIDVERSE_CAPTAIN_A_PASSWORD: ${{ secrets.BIDVERSE_CAPTAIN_A_PASSWORD }}
+      BIDVERSE_CAPTAIN_B_PASSWORD: ${{ secrets.BIDVERSE_CAPTAIN_B_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - name: Check isolated credentials
         run: |
-          for name in BIDVERSE_SUPABASE_URL BIDVERSE_ANON_KEY BIDVERSE_TEST_LOT_ID BIDVERSE_TEST_TEAM_A BIDVERSE_TEST_TEAM_B BIDVERSE_CAPTAIN_A_JWT BIDVERSE_CAPTAIN_B_JWT; do
+          for name in BIDVERSE_SUPABASE_URL BIDVERSE_ANON_KEY BIDVERSE_TEST_LOT_ID BIDVERSE_TEST_TEAM_A BIDVERSE_TEST_TEAM_B BIDVERSE_CAPTAIN_A_EMAIL BIDVERSE_CAPTAIN_B_EMAIL BIDVERSE_CAPTAIN_A_PASSWORD BIDVERSE_CAPTAIN_B_PASSWORD; do
             if [ -z "${!name}" ]; then echo "::error::Missing required repository secret $name"; exit 1; fi
           done
           echo "Authenticated test configuration present."
