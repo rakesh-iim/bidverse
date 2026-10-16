@@ -355,3 +355,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#6e91d7;box-sh
 .bvBrandPill,.bvFloatingBadge,.bvStageLabel{border-radius:999px}
 @media(max-width:850px){.bvAuthLayout{border-radius:25px}.bvStory{border-radius:24px 24px 0 0}.bvAuthCard{border-radius:26px}.bvFormPane{padding-inline:22px}}
 @media(max-width:480px){.bvAuthPage{padding:9px}.bvAuthLayout{border-radius:21px;min-height:calc(100svh - 18px)}.bvAuthCard{border-radius:22px;padding:24px 20px}.bvMode{border-radius:16px}.bvMode button,.bvMode button.selected{border-radius:12px}}
+
+/* Exact user-provided artwork layer; fallback preserves existing scene until asset is uploaded */
+.bvStory .bvReferenceArtwork{display:none}
+.bvStoryImageMode{background:#dce8fb;padding:0;display:block;min-height:750px}
+.bvStoryImageMode .bvReferenceArtwork{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:linear-gradient(140deg,#f5f9ff,#b5cbea)}
+.bvStoryImageMode .bvStoryTop,.bvStoryImageMode .bvStoryCopy,.bvStoryImageMode .bvScene,.bvStoryImageMode .bvStoryBottom{display:none}
+@media(max-width:850px){.bvStoryImageMode{min-height:clamp(320px,70vw,580px)}}
+@media(max-width:480px){.bvStoryImageMode{min-height:275px}}
