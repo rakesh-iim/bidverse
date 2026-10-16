@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
-const required=['BIDVERSE_SUPABASE_URL','BIDVERSE_ANON_KEY','BIDVERSE_TEST_LOT_ID','BIDVERSE_TEST_TEAM_A','BIDVERSE_TEST_TEAM_B','BIDVERSE_CAPTAIN_A_JWT','BIDVERSE_CAPTAIN_B_JWT'];
+const required=['BIDVERSE_SUPABASE_URL','BIDVERSE_ANON_KEY','BIDVERSE_TEST_LOT_ID','BIDVERSE_TEST_TEAM_A','BIDVERSE_TEST_TEAM_B','BIDVERSE_CAPTAIN_A_EMAIL','BIDVERSE_CAPTAIN_A_PASSWORD','BIDVERSE_CAPTAIN_B_EMAIL','BIDVERSE_CAPTAIN_B_PASSWORD'];
 const missing=required.filter(k=>!process.env[k]);if(missing.length){console.error('Missing environment variables: '+missing.join(', '));process.exit(2)}
 const env=process.env;const origin=env.BIDVERSE_SUPABASE_URL.replace(/\/$/,'');
 const headers=jwt=>({'apikey':env.BIDVERSE_ANON_KEY,'Authorization':'Bearer '+jwt,'Content-Type':'application/json'});
 async function call(path,jwt,opts={}){const r=await fetch(origin+'/rest/v1/'+path,{...opts,headers:{...headers(jwt),...opts.headers}});const text=await r.text();let payload;try{payload=JSON.parse(text)}catch{payload=text}return {status:r.status,ok:r.ok,payload}}
-const a=env.BIDVERSE_CAPTAIN_A_JWT,b=env.BIDVERSE_CAPTAIN_B_JWT;
+async function login(email,password){const response=await fetch(origin+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:env.BIDVERSE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password})});const data=await response.json();assert(response.ok&&data.access_token,'Test captain could not authenticate');return data.access_token}
+const [a,b]=await Promise.all([login(env.BIDVERSE_CAPTAIN_A_EMAIL,env.BIDVERSE_CAPTAIN_A_PASSWORD),login(env.BIDVERSE_CAPTAIN_B_EMAIL,env.BIDVERSE_CAPTAIN_B_PASSWORD)]);
 const read=await call('auction_lots?id=eq.'+encodeURIComponent(env.BIDVERSE_TEST_LOT_ID)+'&select=id,event_id,status,current_bid,version,bidding_closes_at,player_id',a);
 assert(read.ok&&read.payload.length===1,'Test lot unavailable to captain A');const lot=read.payload[0];assert.equal(lot.status,'open','Test lot must be open');
 assert(lot.bidding_closes_at==null||Date.parse(lot.bidding_closes_at)>Date.now()+5000,'Test deadline must allow >5 seconds');
