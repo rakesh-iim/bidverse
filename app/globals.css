@@ -286,3 +286,52 @@
 .bvPlayerEmblem{display:grid;place-items:center;margin:8px auto 15px;filter:drop-shadow(0 8px 20px rgba(200,160,89,.24))}.bvPlayerEmblem svg{max-width:100%;animation:bvMonogramHover 5s ease-in-out infinite}.bvBidSuccess,.bvBidFailure{padding:13px;border-radius:11px;font-size:12px;font-weight:700;margin-top:12px}.bvBidSuccess{background:#e4f7ee;border:1px solid #8bccad;color:#176a48}.bvBidFailure{background:#fff0ed;border:1px solid #f3b2a6;color:#9b3428}@media(prefers-reduced-motion:reduce){.bvPlayerEmblem svg{animation:none}}
 
 .bvInviteBox{display:grid;gap:10px;padding:17px;margin:18px 0;background:#f7f9fd;border:1px solid #d9e5f2;border-radius:13px}.bvInviteBox h4{margin:0;color:#193b66}.bvInviteBox input,.bvInviteBox select{width:100%;min-height:42px;border:1px solid #cad9ec;border-radius:9px;padding:10px 12px;background:white}.bvInviteBox button{min-height:40px}
+
+
+/* BIDVERSE premium surface system — cohesive soft geometry, depth, and focus */
+:root{--ink:#172b49;--muted:#73839c;--line:#e7edf5;--blue:#2956b8;--gold:#b9945b;--bg:#f3f6fb;--bv-radius-sm:13px;--bv-radius-md:18px;--bv-radius-lg:24px;--bv-radius-xl:30px;--bv-shadow:0 3px 9px rgba(24,44,78,.025),0 18px 48px rgba(24,44,78,.055)}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse 70% 55% at 82% 0%,rgba(221,232,251,.62),transparent 73%),#f3f6fb}
+button,input,select,textarea{transition:border-color .22s ease,background-color .22s ease,box-shadow .22s ease,transform .22s ease}
+button{border-radius:var(--bv-radius-sm);min-height:40px}
+button:hover:not(:disabled){box-shadow:0 8px 22px rgba(28,64,113,.11);transform:translateY(-2px)}
+button:active:not(:disabled){transform:translateY(0) scale(.985)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(64,113,219,.22);outline-offset:3px}
+input,select,textarea{border-radius:var(--bv-radius-sm);border-color:#dce6f2;background:#fff;min-height:43px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#6e91d7;box-shadow:0 0 0 4px rgba(67,112,203,.09)}
+.primary{background:linear-gradient(135deg,#3567d1,#234da7);border-color:#3567d1;box-shadow:0 6px 17px rgba(46,95,193,.14);color:#fff}
+.primary:hover:not(:disabled){box-shadow:0 10px 27px rgba(46,95,193,.25)}
+.sidebar{border-right:1px solid #e5edf6;background:rgba(255,255,255,.97);box-shadow:8px 0 34px rgba(24,49,87,.018)}
+.logoSquare{border-radius:17px}
+.sidebar nav{gap:8px}
+.sidebar nav button,.sideBottom button{border-radius:15px;padding:14px 15px}
+.sidebar nav button:hover:not(.navActive){background:#f3f6fc;color:#37567c}
+.sidebar nav .navActive{background:linear-gradient(110deg,#edf3ff,#e7efff);box-shadow:inset 3px 0 #4c76cf!important;color:#254f9f}
+.main{padding-top:38px}
+.topbar{margin-bottom:30px}
+.topbar h1{letter-spacing:-.045em;font-weight:800}
+.hero{border-radius:var(--bv-radius-xl);border-color:#dfebf8;background:linear-gradient(115deg,rgba(255,255,255,.97),#edf3ff 75%,#e9effd);box-shadow:var(--bv-shadow);padding:32px 38px}
+.hero h2{letter-spacing:-.042em}
+.metric,.panel,.phone{border-radius:var(--bv-radius-lg);border:1px solid #e5ebf4;box-shadow:var(--bv-shadow);background:#fff}
+.metric{padding:24px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.metric:hover{transform:translateY(-3px);border-color:#d7e3f5;box-shadow:0 22px 45px rgba(22,47,83,.085)}
+.metricIcon{border-radius:16px}
+.panel{padding:26px}
+.heading h3{font-weight:790;letter-spacing:-.035em}
+.spotlight{border-radius:21px;background:linear-gradient(135deg,#f7faff,#eaf2ff)}
+.phone{overflow:hidden}
+.phonePlayer{border-radius:22px}
+.status{border-radius:999px}
+.bvDemoButton{border-radius:15px;background:linear-gradient(125deg,#fff9f0,#f3e6d0);box-shadow:0 4px 14px rgba(137,99,38,.07)}
+.bvDemoSetup,.bvInviteBox,.bvReadiness{border-radius:21px}
+.bvInviteBox{background:linear-gradient(135deg,#fbfcff,#f2f6fc);border-color:#e0eaf7;padding:22px}
+.bvGate{border-radius:15px;padding:14px;border-color:#e7edf6;background:#fff}
+.bvTestScore{border-radius:22px;padding:26px}
+.bvTestCase{border-radius:19px;padding:20px;box-shadow:0 4px 16px rgba(28,50,85,.028)}
+.bvTestActions button,.bvTestIds button{border-radius:12px}
+.bvBidSuccess,.bvBidFailure{border-radius:15px}
+.bvSoldMoment>b{border-radius:13px}
+.arena{border-radius:var(--bv-radius-xl);overflow:hidden;box-shadow:0 19px 50px rgba(5,20,52,.16)}
+.arena:fullscreen{border-radius:0}
+@media(max-width:760px){.main{padding:23px 16px 44px}.hero{border-radius:23px;padding:24px}.panel{padding:20px;border-radius:20px}.metric{padding:19px;border-radius:19px}.bvTestCase{padding:17px;border-radius:17px}.bvInviteBox{padding:17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.metric,input,select,textarea{transition:none}.metric:hover,button:hover:not(:disabled){transform:none}}
