@@ -7,7 +7,7 @@ This is an **isolated test framework**, not a certification of production concur
 2. Register and verify three distinct Supabase Auth users: admin and two captains.
 3. Assign both captains to separate teams in Event Setup and ensure the event has one player.
 4. Set the event to live, open a lot, and confirm the admin, captain A and captain B are signed in on three devices.
-5. Save the test event UUID and three JWT access tokens in a **local-only** environment; never commit tokens or a service-role key.
+5. Save the test event UUID and two isolated test-captain email/password credentials in a **local-only** environment; never commit tokens or a service-role key.
 
 ## Run
 ```sh
@@ -16,8 +16,10 @@ BIDVERSE_ANON_KEY=YOUR_PUBLISHABLE_OR_ANON_KEY \
 BIDVERSE_TEST_LOT_ID=YOUR_TEST_LOT_UUID \
 BIDVERSE_TEST_TEAM_A=YOUR_TEAM_A_UUID \
 BIDVERSE_TEST_TEAM_B=YOUR_TEAM_B_UUID \
-BIDVERSE_CAPTAIN_A_JWT=CAPTAIN_A_ACCESS_TOKEN \
-BIDVERSE_CAPTAIN_B_JWT=CAPTAIN_B_ACCESS_TOKEN \
+BIDVERSE_CAPTAIN_A_EMAIL=CAPTAIN_A_TEST_EMAIL \
+BIDVERSE_CAPTAIN_A_PASSWORD=CAPTAIN_A_TEST_PASSWORD \
+BIDVERSE_CAPTAIN_B_EMAIL=CAPTAIN_B_TEST_EMAIL \
+BIDVERSE_CAPTAIN_B_PASSWORD=CAPTAIN_B_TEST_PASSWORD \
 node tests/concurrent-auction.mjs
 ```
 
@@ -39,3 +41,8 @@ If connectivity is unstable, **pause the active lot**. Stop accepting bids until
 
 ## Release gate
 Do **not** mark production-ready until the test script, multi-device manual acceptance, role-permission tests, and backup rehearsal all pass and are documented.
+
+## Phase 14 verification status
+As of the latest connected database inspection: one Supabase Auth account exists, no events exist, no captains are assigned, and no acceptance results are recorded. Therefore a valid two-captain concurrency run cannot be completed yet. Use the app's Create Demo Auction action while signed in, register and verify two test captain accounts, assign each to a different demo team using private invitations, and move the demo event to live. Open one queued lot before dispatching the GitHub Actions integration workflow. Store test passwords only in GitHub Actions secrets and never paste them into chat or commit them.
+
+The integration test checks one simultaneous equal-price contest, retry idempotency, and rejection of captain bidding for the opposing team. It changes the test auction's bid history; use a fresh demo lot when repeating it.
