@@ -1,6 +1,10 @@
 name: Generate reviewed npm lockfile
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/generate-lockfile.yml'
 permissions:
   contents: write
   pull-requests: write
@@ -37,5 +41,5 @@ jobs:
           git commit -m "chore: add reproducible npm dependency lockfile"
           git push origin "$branch"
           echo "Review branch: $branch" >> "$GITHUB_STEP_SUMMARY"
-          gh pr create --base main --head "$branch" --title "chore: review reproducible npm lockfile" --body "Generated on GitHub Actions using Node 22. Review dependency versions, npm ci and the required checks before merging. This PR does not approve production launch."
+          gh pr create --base main --head "$branch" --title "chore: review reproducible npm lockfile" --body "Generated on GitHub Actions using Node 22. Review dependency versions, npm ci and the required checks before merging. This PR does not approve production launch." || echo "::warning::GitHub Actions could not open a PR automatically; lockfile remains available in workflow artifacts."
           echo "Review dependency versions and CI checks before merging." >> "$GITHUB_STEP_SUMMARY"
