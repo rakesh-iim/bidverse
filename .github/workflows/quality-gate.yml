@@ -33,9 +33,19 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: placeholder-build-only
+      - name: HTTP smoke check for application routes
+        run: |
+          npm run start -- --port 3100 > /tmp/bidverse-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" || true' EXIT
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if curl --silent --fail http://127.0.0.1:3100/api/health > /dev/null; then break; fi
+            sleep 2
+          done
+          BIDVERSE_SMOKE_URL=http://127.0.0.1:3100 node tests/http-smoke.mjs
       - name: Summarize
         if: always()
         run: |
           echo '## BIDVERSE Quality Gate' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Regression tests (including route isolation), type check and production build are required to pass.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Regression tests (including route isolation), type check, production build and HTTP smoke checks are required to pass.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Authenticated concurrency, cross-device recovery, email delivery and backup rehearsals are NOT tested by this job.' >> "$GITHUB_STEP_SUMMARY"
