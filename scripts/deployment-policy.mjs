@@ -4,6 +4,11 @@ export function deploymentErrors(env) {
  const stage=(env.VERCEL_ENV||'').trim();
  if(!['production','preview'].includes(stage)) return [];
  const errors=[];
+ // A PR branch may opt into a backend-free UI-only preview. Real staging remains mandatory for data tests.
+ if(stage==='preview' && env.BIDVERSE_PREVIEW_MODE==='demo-only'){
+  if(env.NEXT_PUBLIC_SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) errors.push('Demo-only Preview must not configure backend credentials');
+  return errors;
+ }
  const rawUrl=(env.NEXT_PUBLIC_SUPABASE_URL||'').trim();
  const key=(env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY||'').trim();
  let host='';
