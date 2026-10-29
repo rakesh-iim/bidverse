@@ -363,3 +363,48 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#6e91d7;box-sh
 .bvStoryImageMode .bvStoryTop,.bvStoryImageMode .bvStoryCopy,.bvStoryImageMode .bvScene,.bvStoryImageMode .bvStoryBottom{display:none}
 @media(max-width:850px){.bvStoryImageMode{min-height:clamp(320px,70vw,580px)}}
 @media(max-width:480px){.bvStoryImageMode{min-height:275px}}
+
+/* Signature UI refinement / unified design layer */
+:root{--bv-accent:#315fc0;--bv-navy:#132b52;--bv-border:#e2eaf4;--bv-surface:#fff;--bv-soft:#f5f8fd;--bv-elevation:0 2px 6px rgba(21,48,88,.025),0 15px 38px rgba(21,48,88,.065)}
+.main{max-width:1800px;margin-inline:auto}
+.main .panel,.main .metric,.main .phone{border:1px solid var(--bv-border);background:linear-gradient(160deg,#fff,#fdfefe);box-shadow:var(--bv-elevation);border-radius:24px}
+.main .panel{padding:clamp(19px,2.2vw,29px)}
+.main .heading{gap:14px;padding-bottom:4px}
+.main .heading h3{font-size:clamp(17px,1.45vw,21px);line-height:1.28}
+.main .eyebrow{color:#7e90ac}
+.main .metric strong{font-variant-numeric:tabular-nums;color:var(--bv-navy)}
+.main .spotlight{border:1px solid #e6edf8;background:linear-gradient(125deg,#f9fbff,#ebf2fe);border-radius:22px}
+.main button:not(.navActive):not(:disabled){transition:background .22s,border-color .22s,transform .22s,box-shadow .22s}
+.main button:focus-visible,.bvAuthPage button:focus-visible{outline:3px solid rgba(64,111,206,.34);outline-offset:3px}
+.main input,.main select,.main textarea{background:#fff;border:1px solid #dce6f2;border-radius:14px}
+.main input:focus,.main select:focus,.main textarea:focus{border-color:#6b94d6;box-shadow:0 0 0 4px rgba(59,110,204,.1)}
+.sidebar nav .navActive{border-radius:17px;background:linear-gradient(110deg,#e9f1ff,#eef4ff);color:#1d4b99}
+.hero{border-radius:30px;background:radial-gradient(circle at 90% 15%,rgba(205,222,252,.6),transparent 42%),linear-gradient(110deg,#fff,#edf4ff);border:1px solid #dde9f9}
+.hero h2{line-height:1.16}
+.bvSetupGrid{align-items:start}
+.bvTestCenter .bvTestScore{background:linear-gradient(120deg,#102b58,#28518e);box-shadow:0 12px 30px rgba(15,40,84,.16)}
+.bvTestCase{background:#fff;border:1px solid #e1eaf5;border-radius:20px;transition:border-color .2s,box-shadow .2s}
+.bvTestCase:hover{border-color:#c8d9f0;box-shadow:0 7px 25px rgba(32,62,110,.06)}
+.bvGate{border-radius:16px;background:#fcfdff}
+.bvInviteBox{border-radius:22px;box-shadow:inset 0 1px rgba(255,255,255,.9)}
+.phone{border-radius:32px!important;overflow:hidden;box-shadow:0 20px 52px rgba(20,50,91,.12)!important}
+.phoneHead{background:linear-gradient(115deg,#112c58,#23518f);color:#fff}
+.phonePlayer{background:radial-gradient(circle at 50% 15%,rgba(249,229,188,.2),transparent 45%),linear-gradient(155deg,#f9fbff,#eef4fd);border-radius:24px;margin:12px 0}
+.phoneStats>div{border-radius:18px}
+.bvBidSuccess,.bvBidFailure{border-radius:16px;line-height:1.6}
+.arena{border:1px solid rgba(183,206,245,.2);border-radius:30px;box-shadow:0 22px 60px rgba(11,31,68,.19);overflow:hidden}
+.arenaHeader{gap:14px}
+.stagePortrait{filter:drop-shadow(0 12px 25px rgba(7,20,49,.16))}
+.stageBid strong{font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.arenaTeams>div{border-radius:17px}
+.bvArenaTicker{border-top:1px solid rgba(220,233,255,.15)}
+.bvAuthLayout{border-radius:34px;overflow:hidden;box-shadow:0 30px 100px rgba(20,45,86,.13)}
+.bvAuthCard{border-radius:32px;box-shadow:0 21px 70px rgba(35,67,106,.095);border:1px solid rgba(255,255,255,.95)}
+.bvInputWrap{border-radius:17px}
+.bvMode{border-radius:20px}
+.bvSubmit{border-radius:17px}
+.bvAuthPage .bvReferenceArtwork{max-width:100%}
+.bvStoryImageMode .bvReferenceArtwork{object-fit:contain}
+@media(max-width:980px){.main .panel{padding:21px}.hero{padding:25px}.main .metric{padding:19px}}
+@media(max-width:650px){.main{padding:20px 14px 45px}.main .panel,.main .metric{border-radius:20px}.hero{border-radius:24px;padding:20px}.arena{border-radius:22px}.phone{border-radius:24px!important}.bvAuthLayout{border-radius:23px}.bvAuthCard{border-radius:24px}}
+@media(prefers-reduced-motion:reduce){.main button,.bvTestCase{transition:none}}
