@@ -1,4 +1,11 @@
 import assert from 'node:assert/strict';
+import {integrationTestErrors} from '../scripts/deployment-policy.mjs';
+const destinationIssues=integrationTestErrors(process.env);
+if(destinationIssues.length){
+ for(const issue of destinationIssues) console.error('[Auction integration safety] '+issue);
+ process.exit(2);
+}
+
 const required=['BIDVERSE_SUPABASE_URL','BIDVERSE_ANON_KEY','BIDVERSE_TEST_LOT_ID','BIDVERSE_TEST_TEAM_A','BIDVERSE_TEST_TEAM_B','BIDVERSE_CAPTAIN_A_EMAIL','BIDVERSE_CAPTAIN_A_PASSWORD','BIDVERSE_CAPTAIN_B_EMAIL','BIDVERSE_CAPTAIN_B_PASSWORD'];
 const missing=required.filter(k=>!process.env[k]);if(missing.length){console.error('Missing environment variables: '+missing.join(', '));process.exit(2)}
 const env=process.env;const origin=env.BIDVERSE_SUPABASE_URL.replace(/\/$/,'');
