@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-label="Detailed navy and gold auction gavel">
+<defs>
+ <linearGradient id="navy" x1="0" y1="0" x2=".1" y2="1"><stop stop-color="#6489bc"/><stop offset=".15" stop-color="#214b87"/><stop offset=".42" stop-color="#071938"/><stop offset=".65" stop-color="#142f62"/><stop offset=".88" stop-color="#06162f"/><stop offset="1" stop-color="#2c538d"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#9a5c17"/><stop offset=".18" stop-color="#f6cc74"/><stop offset=".39" stop-color="#fff3bd"/><stop offset=".57" stop-color="#b87929"/><stop offset=".77" stop-color="#f5c265"/><stop offset="1" stop-color="#86501b"/></linearGradient>
+ <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff4c9"/><stop offset=".15" stop-color="#d7a451"/><stop offset=".44" stop-color="#955913"/><stop offset=".66" stop-color="#f6cc77"/><stop offset=".9" stop-color="#a86b24"/><stop offset="1" stop-color="#fff1af"/></linearGradient>
+ <radialGradient id="face"><stop stop-color="#ffeab2"/><stop offset=".48" stop-color="#dfa94d"/><stop offset=".74" stop-color="#9a5a1a"/><stop offset=".91" stop-color="#f0c06e"/><stop offset="1" stop-color="#fff0ac"/></radialGradient>
+ <linearGradient id="handle" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="#fff0b4"/><stop offset=".12" stop-color="#a16c2b"/><stop offset=".24" stop-color="#183768"/><stop offset=".52" stop-color="#0b2047"/><stop offset=".77" stop-color="#31558e"/><stop offset=".89" stop-color="#ae752e"/><stop offset="1" stop-color="#ffe6a1"/></linearGradient>
+ <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="19"/></filter>
+ <filter id="shine" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
+ <pattern id="grip" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="14" height="14" fill="#102752"/><path d="M0 0V14 M7 0V14" stroke="#d4a35c" opacity=".48" stroke-width="2"/></pattern>
+</defs>
+<ellipse cx="462" cy="591" rx="263" ry="30" fill="#051839" opacity=".27" filter="url(#shadow)"/>
+<g transform="translate(450 317) rotate(-32)">
+ <g transform="translate(30 33)">
+  <rect x="-17" y="42" width="45" height="286" rx="20" fill="#061733" opacity=".35" filter="url(#shadow)"/>
+  <rect x="-23" y="35" width="48" height="290" rx="17" fill="url(#handle)" stroke="#f6d58a" stroke-width="5"/>
+  <rect x="-15" y="44" width="30" height="264" rx="11" fill="none" stroke="#f7d184" stroke-width="2" opacity=".7"/>
+  <rect x="-27" y="49" width="57" height="25" rx="8" fill="url(#metal)" stroke="#fff1ba" stroke-width="3"/>
+  <rect x="-27" y="249" width="55" height="46" rx="8" fill="url(#grip)" stroke="#e9bc70" stroke-width="4"/>
+  <rect x="-29" y="289" width="59" height="20" rx="8" fill="url(#metal)" stroke="#fff0b1" stroke-width="3"/>
+  <rect x="-34" y="305" width="68" height="27" rx="12" fill="url(#metal)" stroke="#fff2bf" stroke-width="4"/>
+  <path d="M-16 94V230" stroke="#fff1b3" opacity=".6" stroke-width="4"/>
+ </g>
+ <rect x="-259" y="-92" width="528" height="195" rx="53" fill="#061936" opacity=".45" filter="url(#shadow)"/>
+ <rect x="-252" y="-103" width="510" height="190" rx="49" fill="url(#navy)" stroke="#d39c4e" stroke-width="13"/>
+ <rect x="-241" y="-92" width="488" height="168" rx="42" fill="none" stroke="#ffe3a0" stroke-width="4"/>
+ <path d="M-202 -68H210" stroke="#dfb574" stroke-width="5" opacity=".9"/>
+ <path d="M-184 -53H198" stroke="#8aabd4" stroke-width="4" opacity=".54"/>
+ <path d="M-202 52H210" stroke="#c28c4c" stroke-width="5" opacity=".9"/>
+ <path d="M-184 40H198" stroke="#5e7da7" stroke-width="3" opacity=".6"/>
+ <rect x="-194" y="-35" width="383" height="50" rx="12" fill="#071d47" opacity=".48"/>
+ <text x="0" y="1" font-family="Georgia,serif" font-size="27" letter-spacing="6" font-weight="bold" fill="#ebc581" text-anchor="middle">BIDVERSE</text>
+ <g fill="#f5d391" stroke="#fff0bd" stroke-width="1"><path d="M-193 -8l5-10 5 10 10 5-10 5-5 10-5-10-10-5z"/><path d="M192 -8l5-10 5 10 10 5-10 5-5 10-5-10-10-5z"/></g>
+ <g stroke="#f9d88f" stroke-width="4">
+  <rect x="-234" y="-102" width="26" height="188" rx="10" fill="url(#metal)"/>
+  <rect x="206" y="-102" width="27" height="188" rx="10" fill="url(#metal)"/>
+ </g>
+ <ellipse cx="-247" cy="-8" rx="48" ry="111" fill="url(#metal)" stroke="#fff0b8" stroke-width="8"/>
+ <ellipse cx="-247" cy="-8" rx="34" ry="96" fill="url(#face)" stroke="#b0752f" stroke-width="3"/>
+ <ellipse cx="257" cy="-8" rx="49" ry="111" fill="url(#metal)" stroke="#fff1bc" stroke-width="8"/>
+ <ellipse cx="257" cy="-8" rx="36" ry="96" fill="url(#face)" stroke="#ba7f34" stroke-width="4"/>
+ <path d="M-249 -80C-270 -42 -267 36 -250 66" stroke="#fff6cb" stroke-width="4" opacity=".8" fill="none"/>
+ <path d="M258 -78C234 -39 235 35 259 67" stroke="#fff6cb" stroke-width="4" opacity=".8" fill="none"/>
+ <path d="M-190 -75H195" stroke="#fff5ce" opacity=".42" stroke-width="5"/>
+</g>
+</svg>
