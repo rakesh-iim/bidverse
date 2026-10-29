@@ -1,7 +1,6 @@
 'use client';
 import {useEffect,useState,useCallback} from 'react';
 import {supabase} from '@/lib/supabase';
-import DemoPreview from '@/components/DemoPreview';
 import {Activity,BarChart3,CircleDollarSign,Download,Gavel,LayoutDashboard,LogOut,Monitor,Play,Radio,ShieldCheck,Smartphone,Trophy,Users,Wallet} from 'lucide-react';
 import type {User} from '@supabase/supabase-js';
 type Team={id:string;name:string;initial_purse:number;remaining_purse:number};
@@ -18,8 +17,6 @@ const tabs=[{id:'command',name:'Command Center',Icon:LayoutDashboard},{id:'setup
 type Tab=typeof tabs[number]['id'];
 export default function Dashboard(){
  const [client]=useState(()=>supabase());
- const [guestMode,setGuestMode]=useState(false);
- useEffect(()=>{setGuestMode(!new URLSearchParams(window.location.search).has('auth'))},[]);
  const [user,setUser]=useState<User|null>(null),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[authMode,setAuthMode]=useState<'login'|'signup'|'recover'>('login'),[passwordRecovery,setPasswordRecovery]=useState(false);
  const [tab,setTab]=useState<Tab>('command'),[events,setEvents]=useState<Event[]>([]),[eventId,setEventId]=useState('');
  const [teams,setTeams]=useState<Team[]>([]),[players,setPlayers]=useState<Player[]>([]),[lots,setLots]=useState<Lot[]>([]),[sales,setSales]=useState<Sale[]>([]);
