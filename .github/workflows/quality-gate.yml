@@ -17,7 +17,13 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            echo "::warning::No package-lock.json. The dependency tree is not reproducible."
+            npm install --no-audit --no-fund
+          fi
       - name: Regression suite
         run: npm test
       - name: TypeScript check
@@ -31,5 +37,5 @@ jobs:
         if: always()
         run: |
           echo '## BIDVERSE Quality Gate' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Regression, type check and production build are required to pass.' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Authenticated concurrency, cross-device recovery and backup rehearsals are NOT tested by this job.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Regression tests (including route isolation), type check and production build are required to pass.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Authenticated concurrency, cross-device recovery, email delivery and backup rehearsals are NOT tested by this job.' >> "$GITHUB_STEP_SUMMARY"
