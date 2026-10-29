@@ -408,3 +408,19 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#6e91d7;box-sh
 @media(max-width:980px){.main .panel{padding:21px}.hero{padding:25px}.main .metric{padding:19px}}
 @media(max-width:650px){.main{padding:20px 14px 45px}.main .panel,.main .metric{border-radius:20px}.hero{border-radius:24px;padding:20px}.arena{border-radius:22px}.phone{border-radius:24px!important}.bvAuthLayout{border-radius:23px}.bvAuthCard{border-radius:24px}}
 @media(prefers-reduced-motion:reduce){.main button,.bvTestCase{transition:none}}
+
+/* Hand-finished Signature Edition gavel */
+.bvGavelHead{border:2px solid #f1c878;border-radius:20px;background:linear-gradient(180deg,#f9e7b8 0%,#d89b46 5%,#0e2c63 12%,#264b89 26%,#0a204e 54%,#102d61 72%,#315694 84%,#e5b763 94%,#fff0ba 100%);box-shadow:inset 0 3px 2px #fff6d6b8,inset 0 -5px 8px #00143d8c,0 24px 35px #102a5f73,0 0 22px #dfb15a58}
+.bvGavelHead:before,.bvGavelHead:after{top:-14px;bottom:-14px;width:25px;border:3px solid #fbe1a1;box-shadow:inset 5px 0 7px #85541c80,inset -3px 1px 6px #fff3c7ac,0 0 0 3px #9e6a32,0 0 0 5px #e9c37d;background:radial-gradient(ellipse at 45% 40%,#ffeec0 0%,#e4af5d 35%,#9e621e 73%,#ffe6a4 100%)}
+.bvGavelHead:before{left:-7px}.bvGavelHead:after{right:-7px}
+.bvGavelInlay{position:absolute;inset:8px 26px;border:1px solid #f8d68d;border-radius:9px;pointer-events:none;background:linear-gradient(175deg,#ffffff30,transparent 35%,#02184242 70%,#ffe5a412);box-shadow:inset 0 0 0 3px #0c2759,inset 0 0 0 4px #b88949}
+.bvGavelInlay:before,.bvGavelInlay:after{content:"";position:absolute;top:7px;bottom:7px;width:2px;border-radius:4px;background:linear-gradient(#ffebba,#aa7532,#fbe1a4)}
+.bvGavelInlay:before{left:6px}.bvGavelInlay:after{right:6px}
+.bvGavelFiligree{position:absolute;z-index:1;top:50%;transform:translateY(-50%);color:#efc77c;font-size:15px;text-shadow:0 0 5px #ffdf9d99}
+.bvGavelFiligreeLeft{left:33px}.bvGavelFiligreeRight{right:33px}
+.bvGavelEngraving{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Georgia,serif;font-size:clamp(7px,.7vw,11px);font-weight:700;letter-spacing:.12em;color:#f8d99c;text-shadow:0 1px 3px #000b2a,0 0 9px #f0cb8b75}
+.bvGavelHandle{height:23px;border:2px solid #f5d38d;background:linear-gradient(180deg,#f9df9e 0%,#c89141 13%,#15386e 24%,#234b88 37%,#081d45 68%,#e4ae57 90%,#ffebaf 100%);box-shadow:0 12px 24px #0b2c6273,inset 0 3px 3px #fff1c194}
+.bvGavelHandle:before{content:"";position:absolute;left:11%;top:-6px;bottom:-6px;width:11px;border:2px solid #e6bd76;border-radius:8px;background:linear-gradient(90deg,#a36722,#ffefb5,#aa6a2a)}
+.bvGavelGrip{position:absolute;right:12%;top:2px;bottom:2px;width:28%;border:1px solid #e2b76c;border-radius:6px;background:repeating-linear-gradient(130deg,#071f46 0px,#112f60 3px,#ba8d4c 4px,#102b59 6px);box-shadow:inset 0 1px 4px #04142d}
+.bvGavelPommel{position:absolute;right:-9px;top:-6px;bottom:-6px;width:15px;border-radius:8px;border:2px solid #fce5a4;background:linear-gradient(90deg,#8a541a,#ebba63,#fff0b9,#ac702d);box-shadow:0 0 9px #f4d38e66}
+@media(max-width:650px){.bvGavelEngraving{font-size:7px;letter-spacing:.05em}.bvGavelFiligree{font-size:10px}}
