@@ -28,3 +28,9 @@
 - The repository's previous README is stale and should not be treated as a release certification.
 - Staging Supabase/Vercel environments have not been provisioned.
 - End-to-end Auth email delivery, concurrent bidding, four-device recovery, and backup restoration are not yet verified.
+
+## Next hardening increments
+- Build now runs scripts/check-deployment.mjs before Next.js compilation. Production must use the approved production Supabase host; Preview builds must use a separate staging host. These checks validate configuration and do not verify actual database availability.
+- Public GET /api/health returns application-process status only, never secrets or database health. CI starts the built app and runs tests/http-smoke.mjs against the root route, demo, health, and auction-gavel SVG.
+- The manually dispatched GitHub Actions workflow generate-lockfile.yml resolves a reviewed package-lock.json on a separate branch and attempts a pull request. It has NOT been dispatched. Until reviewed and merged, npm dependency versions are not locked for release.
+- No staging database has been created or billed for this project; staging setup requires a separate reviewed environment and any necessary cost approval.
