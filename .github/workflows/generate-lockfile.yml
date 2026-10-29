@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  pull-requests: write
 jobs:
   prepare-lockfile:
     runs-on: ubuntu-latest
@@ -36,4 +37,5 @@ jobs:
           git commit -m "chore: add reproducible npm dependency lockfile"
           git push origin "$branch"
           echo "Review branch: $branch" >> "$GITHUB_STEP_SUMMARY"
-          echo "Open a pull request and review resolved versions before merging." >> "$GITHUB_STEP_SUMMARY"
+          gh pr create --base main --head "$branch" --title "chore: review reproducible npm lockfile" --body "Generated on GitHub Actions using Node 22. Review dependency versions, npm ci and the required checks before merging. This PR does not approve production launch."
+          echo "Review dependency versions and CI checks before merging." >> "$GITHUB_STEP_SUMMARY"
