@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "prebuild": "node scripts/check-deployment.mjs",
+    "check:deployment": "node scripts/check-deployment.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",
