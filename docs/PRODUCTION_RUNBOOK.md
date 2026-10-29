@@ -4,7 +4,7 @@
 - [ ] Latest Vercel production deployment is READY.
 - [ ] Administrator, operator and two separate verified captain accounts can sign in.
 - [ ] Each captain sees only their assigned team; test unauthorized team bid rejection.
-- [ ] Execute `node tests/concurrent-auction.mjs` using an isolated event, two captain JWTs, and a test lot. Record output and timestamp.
+- [ ] Execute `node tests/concurrent-auction.mjs` using an isolated event, two freshly authenticated test-captain sessions, and a test lot. Record output and timestamp.
 - [ ] Verify bid sequence, duplicate request behavior, timer cutoff, budget reservation, and exactly-one roster assignment after sale.
 - [ ] Verify cross-device sync, forced offline/reconnect, and projector fullscreen.
 - [ ] Confirm database backup coverage and complete one recovery rehearsal with a disposable environment.
@@ -29,4 +29,4 @@
 Confirm the Supabase project's current plan-supported backup/PITR options in its dashboard. Enable applicable backups and validate a restore in an isolated database. Do not restore over production during a live auction without an approved incident plan.
 
 ## Limitations
-The automated JS rule tests are **not** database transaction tests. The authenticated concurrent-bidding test must be run separately with real isolated accounts. No production-launch approval is implied by a successful build alone.
+The automated JS rule tests and static architecture checks are **not** database transaction tests. The authenticated concurrent-bidding test must be run separately with real isolated accounts. No production-launch approval is implied by a successful build alone.
