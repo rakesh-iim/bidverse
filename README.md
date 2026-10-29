@@ -19,14 +19,14 @@ Supabase project: `zrzqwtciyaibdeuumaee`.
 Two existing migrations created the schema, RLS, and auction RPCs. Do **not** rerun them automatically against the same database. The backend has event, player, team, lot, bid, roster and audit tables.
 
 ## Important limitations
-- Auth account creation and team/operator membership assignment need an admin onboarding flow. Event creation assigns the creator as admin only for their new event.
-- Realtime publication configuration has not been deployed. Postgres Changes subscriptions may not deliver all changes until configured and tested; this is NOT production-ready synchronization.
-- No full concurrency, authorization, auction pause/correction, countdown, offline and edge-case testing has been completed.
+- Email signup, account confirmation, captain invitations and role assignment exist in code, but end-to-end email delivery and onboarding still require acceptance testing.
+- Realtime publication contains events, teams, auction_lots, bids and roster_assignments. Multi-device delivery and reconnect consistency are not yet proven.
+- Automated auction-rule tests and an authenticated concurrency script exist; full database concurrency, authorization, offline and correction acceptance has not been verified.
 - The mobile Team Portal requires an assigned captain role to submit bids.
 - Current interface needs a visual parity pass against the approved original Signature Edition HTML.
 
 ## Deploy
-Connect `rakesh-iim/bidverse` to Vercel after a passing build. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` as environment variables, and set the correct Supabase Auth redirect URLs.
+The repository is connected to Vercel; deploy from the reviewed main branch after passing validation. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` as environment variables, and set the correct Supabase Auth redirect URLs.
 
 **Do not operate a real auction until server-side bidding, RLS policies, and concurrent bids have been verified.**
 
