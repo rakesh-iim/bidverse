@@ -1,9 +1,9 @@
-# BIDVERSE — Phase 2 (Development)
+# BIDVERSE — Production Hardening In Progress
 
 Next.js 15 / React 19 / TypeScript / Supabase auction dashboard. Includes Command Center, Live Arena, Team Portal, and Intelligence with responsive light styling.
 
 ## Status
-**Source committed to main; build, authentication tests, realtime publication and production readiness NOT verified.** This repository is a compact connected implementation, not yet a bit-for-bit port of the original 83 KB Phase 1 Signature demo. The original standalone prototype remains in the ChatGPT Phase 2 ZIP.
+**Current Vercel deployment is READY; production approval is NOT granted.** This repository is a compact connected implementation, not yet a bit-for-bit port of the original 83 KB Phase 1 Signature demo. The original standalone prototype remains in the ChatGPT Phase 2 ZIP.
 
 ## Setup
 1. `cp .env.example .env.local`
@@ -29,3 +29,9 @@ Two existing migrations created the schema, RLS, and auction RPCs. Do **not** re
 Connect `rakesh-iim/bidverse` to Vercel after a passing build. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` as environment variables, and set the correct Supabase Auth redirect URLs.
 
 **Do not operate a real auction until server-side bidding, RLS policies, and concurrent bids have been verified.**
+
+## Current access model
+The root route is authenticated. The public /demo route is local-only and does not use Supabase for its simulated actions. See docs/PHASE1_FOUNDATION.md for staging and outstanding release checks.
+
+## Dependency reproducibility
+A reviewed package-lock.json is not yet committed. The CI installation step warns when missing; generate, review and commit a lockfile before making release builds reproducible.
