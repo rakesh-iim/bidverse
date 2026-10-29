@@ -32,3 +32,15 @@ test('client-visible secret keys are always rejected',()=>{
 test('CI and local builds do not require live credentials',()=>{
  assert.deepEqual(deploymentErrors({NEXT_PUBLIC_SUPABASE_URL:'https://example.supabase.co',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'placeholder-build-only'}),[]);
 });
+
+test('preview demo-only mode runs without any Supabase credentials',()=>{
+ assert.deepEqual(deploymentErrors({VERCEL_ENV:'preview',BIDVERSE_PREVIEW_MODE:'demo-only'}),[]);
+});
+test('preview demo-only mode rejects any backend credentials',()=>{
+ const errors=deploymentErrors({VERCEL_ENV:'preview',BIDVERSE_PREVIEW_MODE:'demo-only',NEXT_PUBLIC_SUPABASE_URL:staging,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:key});
+ assert.ok(errors.some(e=>e.includes('must not configure backend')));
+});
+test('production never bypasses its Supabase checks with demo-only flag',()=>{
+ const errors=deploymentErrors({VERCEL_ENV:'production',BIDVERSE_PREVIEW_MODE:'demo-only'});
+ assert.ok(errors.some(e=>e.includes('URL')));
+});
