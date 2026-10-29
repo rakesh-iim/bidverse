@@ -36,5 +36,5 @@ The root route is authenticated. The public /demo route is local-only and does n
 ## Dependency reproducibility
 A reviewed package-lock.json is not yet committed. The CI installation step warns when missing; generate, review and commit a lockfile before making release builds reproducible.
 
-## Branch-scoped preview environment
-The lockfile review branch can use `BIDVERSE_PREVIEW_MODE=demo-only` in Vercel Preview to render a backend-free review landing page and `/demo`. It requires **no Supabase URL or keys**. This is not a staging test environment, and production builds still require the approved production Supabase project.
+## PR-only preview mode
+This pull request supports `BIDVERSE_PREVIEW_MODE=demo-only` scoped to the review branch. It renders the root landing page and `/demo` without any Supabase configuration. It is **not** a staging-backend substitute. Production always requires its approved Supabase environment.
