@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {deploymentErrors} from '../scripts/deployment-policy.mjs';
+import {deploymentErrors,integrationTestErrors} from '../scripts/deployment-policy.mjs';
 
 const production='https://zrzqwtciyaibdeuumaee.supabase.co';
 const staging='https://staging-project.supabase.co';
@@ -31,4 +31,17 @@ test('client-visible secret keys are always rejected',()=>{
 });
 test('CI and local builds do not require live credentials',()=>{
  assert.deepEqual(deploymentErrors({NEXT_PUBLIC_SUPABASE_URL:'https://example.supabase.co',NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:'placeholder-build-only'}),[]);
+});
+
+test('auction integration refuses production even with otherwise valid credentials',()=>{
+ const errors=integrationTestErrors({BIDVERSE_SUPABASE_URL:production});
+ assert.ok(errors.some(e=>e.includes('REFUSED')));
+});
+test('auction integration permits isolated staging Supabase origin',()=>{
+ assert.deepEqual(integrationTestErrors({BIDVERSE_SUPABASE_URL:staging}),[]);
+});
+test('auction integration rejects missing, non-HTTPS or non-Supabase targets',()=>{
+ assert.ok(integrationTestErrors({}).length>0);
+ assert.ok(integrationTestErrors({BIDVERSE_SUPABASE_URL:'http://staging-project.supabase.co'}).length>0);
+ assert.ok(integrationTestErrors({BIDVERSE_SUPABASE_URL:'https://example.com'}).length>0);
 });
