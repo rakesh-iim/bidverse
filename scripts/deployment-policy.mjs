@@ -16,3 +16,18 @@ export function deploymentErrors(env) {
  if(stage==='preview' && !rawUrl) errors.push('Preview requires a separate staging Supabase configuration');
  return errors;
 }
+
+/** Do not allow destructive integration tests to run against the live BIDVERSE database. */
+export function integrationTestErrors(env) {
+ const errors = [];
+ const rawUrl = (env.BIDVERSE_SUPABASE_URL || '').trim();
+ let target;
+ try { target = new URL(rawUrl); }
+ catch { return ['Set a valid isolated staging Supabase URL before running live bid tests']; }
+ if (target.protocol !== 'https:') errors.push('Live bid tests require HTTPS');
+ const host = target.hostname.toLowerCase();
+ if (host === PROD_HOST) errors.push('REFUSED: live bid integration tests cannot target BIDVERSE production');
+ if (!host.endsWith('.supabase.co') || !/^[a-z0-9-]+\.supabase\.co$/.test(host)) errors.push('Live bid tests require an explicit Supabase project hostname');
+ if (target.username || target.password || target.search || target.hash || target.pathname !== '/') errors.push('Use the staging project origin only, without paths or credentials');
+ return errors;
+}
